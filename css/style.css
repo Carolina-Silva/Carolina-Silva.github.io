@@ -389,6 +389,14 @@ img{
 
 /*--MEDIA QUERIES---------------------------*/
 /* ----------------------------------------- */
+@media screen and (max-width: 520px) {
+    .home__img {
+      width: 250px;
+    }
+    .skills__img img{
+        margin: 0 20px;
+    }
+  }
 @media screen and (max-width: 320px) {
     .home__img {
       width: 230px;
@@ -440,7 +448,6 @@ img{
       }
       .home__img{
           width: 524px;
-          right: 10%;
       }
   
       .about__container{
