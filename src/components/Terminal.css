@@ -1,0 +1,88 @@
+.terminal-container {
+  background-color: #0d1117;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  font-family: var(--font-mono);
+  border: 1px solid var(--glass-border);
+  width: 100%;
+  max-width: 600px;
+  margin-top: 2rem;
+}
+
+.terminal-header {
+  background-color: #161b22;
+  padding: 8px 15px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.term-btn {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.term-btn.close { background-color: #ff5f56; }
+.term-btn.min { background-color: #ffbd2e; }
+.term-btn.max { background-color: #27c93f; }
+
+.term-title {
+  color: #8b949e;
+  font-size: 0.85rem;
+  margin-left: 10px;
+}
+
+.terminal-body {
+  padding: 1.5rem;
+  height: 300px;
+  overflow-y: auto;
+  cursor: text;
+}
+
+.term-line {
+  margin-bottom: 8px;
+  white-space: pre-wrap;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.term-line.output {
+  color: var(--accent-cyan);
+}
+
+.term-line.input {
+  color: var(--text-main);
+}
+
+.term-input-line {
+  display: flex;
+  align-items: center;
+}
+
+.prompt {
+  color: var(--accent-green);
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+#term-input {
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  flex: 1;
+  outline: none;
+}
+
+/* Scrollbar para o terminal */
+.terminal-body::-webkit-scrollbar {
+  width: 6px;
+}
+.terminal-body::-webkit-scrollbar-thumb {
+  background: #30363d;
+  border-radius: 3px;
+}

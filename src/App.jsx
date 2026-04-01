@@ -10,8 +10,20 @@ import {
 } from 'react-icons/fa';
 import { SiPython, SiPandas, SiScikitlearn, SiOpencv, SiReact, SiTypescript } from 'react-icons/si';
 
+// Novas dependências interativas
+import CountUp from 'react-countup';
+import { useInView } from 'react-intersection-observer';
+import Terminal from './components/Terminal';
+import SkillChart from './components/SkillChart';
+
 function App() {
   const [activeSection, setActiveSection] = useState('home');
+
+  // Observer para ativar os contadores a partir da seção Sobre
+  const { ref: statsRef, inView: statsInView } = useInView({
+    threshold: 0.3,
+    triggerOnce: true
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,22 +66,27 @@ function App() {
       {/* Main Content */}
       <main>
         {/* Hero Section */}
-        <section id="home" className="hero">
-          <p className="hero-subtitle">~$ whoami</p>
-          <h1 className="hero-title">
-            Carolina <span>Silva</span>
-          </h1>
-          <p className="hero-desc">
-            Cientista de Dados Júnior e Desenvolvedora de Software construindo soluções
-            desde pipelines de ETL e modelos de regressão/classificação até interfaces web interativas.
-          </p>
-          <div style={{ display: 'flex', gap: '1rem' }}>
-            <a href="#portfolio" className="btn">
-              <FaCode /> Ver Projetos
-            </a>
-            <a href="/Carolina_Nascimento_Analista_Dados_Junior.pdf" download className="btn" style={{ borderColor: 'var(--text-muted)', color: 'var(--text-main)' }}>
-              Download CV
-            </a>
+        <section id="home" className="hero" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', alignItems: 'center' }}>
+          <div>
+            <p className="hero-subtitle">~$ whoami</p>
+            <h1 className="hero-title">
+              Carolina <span>Silva</span>
+            </h1>
+            <p className="hero-desc">
+              Cientista de Dados Júnior e Desenvolvedora de Software construindo soluções
+              desde pipelines de ETL e modelos de abstração até interfaces web interativas.
+            </p>
+            <div style={{ display: 'flex', gap: '1rem' }}>
+              <a href="#portfolio" className="btn">
+                <FaCode /> Ver Projetos
+              </a>
+              <a href="/Carolina_Nascimento_Analista_Dados_Junior.pdf" download className="btn" style={{ borderColor: 'var(--text-muted)', color: 'var(--text-main)' }}>
+                Download CV
+              </a>
+            </div>
+          </div>
+          <div style={{ padding: '0 1rem' }}>
+            <Terminal />
           </div>
         </section>
 
@@ -92,18 +109,38 @@ function App() {
                 pela USP/ESALQ, além de ser formada em Desenvolvimento de Software Multiplataforma (FATEC).
               </p>
             </div>
-            <div className="about-stats">
+
+            <div className="about-stats" ref={statsRef}>
               <div className="stat-item">
                 <FaDatabase size={24} color="var(--accent-cyan)" style={{ marginBottom: '1rem' }} />
                 <h3 className="stat-title">Pipelines Desenvolvidos</h3>
-                <p style={{ fontSize: '2rem', fontFamily: 'var(--font-mono)' }}>10+</p>
+                <p style={{ fontSize: '2.5rem', fontFamily: 'var(--font-mono)', color: 'var(--accent-cyan)' }}>
+                  {statsInView ? <CountUp end={14} duration={3} suffix="+" /> : '0'}
+                </p>
               </div>
               <div className="stat-item">
                 <FaTerminal size={24} color="var(--accent-green)" style={{ marginBottom: '1rem' }} />
                 <h3 className="stat-title">Anos de Experiência</h3>
-                <p style={{ fontSize: '2rem', fontFamily: 'var(--font-mono)' }}>2+</p>
+                <p style={{ fontSize: '2.5rem', fontFamily: 'var(--font-mono)', color: 'var(--accent-green)' }}>
+                  {statsInView ? <CountUp end={2} duration={2} suffix="+" /> : '0'}
+                </p>
+              </div>
+              <div className="stat-item">
+                <SiScikitlearn size={24} color="var(--text-muted)" style={{ marginBottom: '1rem' }} />
+                <h3 className="stat-title">Modelos Analisados</h3>
+                <p style={{ fontSize: '2.5rem', fontFamily: 'var(--font-mono)' }}>
+                  {statsInView ? <CountUp end={45} duration={4} suffix="+" /> : '0'}
+                </p>
+              </div>
+              <div className="stat-item">
+                <SiPython size={24} color="var(--text-muted)" style={{ marginBottom: '1rem' }} />
+                <h3 className="stat-title">Scripts Python</h3>
+                <p style={{ fontSize: '2.5rem', fontFamily: 'var(--font-mono)' }}>
+                  {statsInView ? <CountUp end={100} duration={3} suffix="+" /> : '0'}
+                </p>
               </div>
             </div>
+
           </div>
         </section>
 
@@ -111,7 +148,6 @@ function App() {
         <section id="experience" className="experience">
           <h2 className="section-title"><span>02.</span> Experiência</h2>
           <div className="experience-list">
-
             <div className="experience-card">
               <div className="exp-header">
                 <div>
@@ -141,39 +177,45 @@ function App() {
                 <li>Comunicação inter-disciplinar diária com médicos e biomédicos na tradução de necessidades lógicas complexas.</li>
               </ul>
             </div>
-
           </div>
         </section>
 
         {/* Skills Section */}
         <section id="skills" className="skills">
           <h2 className="section-title"><span>03.</span> Tech Skills</h2>
-          <div className="skills-grid">
+          <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '3rem', alignItems: 'center' }}>
 
-            <div className="skill-category">
-              <h3 className="skill-category-title"><FaDatabase /> Data & ML</h3>
-              <div className="skill-list">
-                <span className="skill-tag">Python</span>
-                <span className="skill-tag">SQL</span>
-                <span className="skill-tag">Pandas</span>
-                <span className="skill-tag">NumPy</span>
-                <span className="skill-tag">Scikit-learn</span>
-                <span className="skill-tag">OpenCV</span>
-                <span className="skill-tag">ETL</span>
+            <div className="skills-grid">
+              <div className="skill-category">
+                <h3 className="skill-category-title"><FaDatabase /> Data & ML</h3>
+                <div className="skill-list">
+                  <span className="skill-tag">Python</span>
+                  <span className="skill-tag">SQL</span>
+                  <span className="skill-tag">Pandas</span>
+                  <span className="skill-tag">NumPy</span>
+                  <span className="skill-tag">Scikit-learn</span>
+                  <span className="skill-tag">OpenCV</span>
+                  <span className="skill-tag">ETL</span>
+                </div>
+              </div>
+
+              <div className="skill-category">
+                <h3 className="skill-category-title"><FaCode /> Software Dev</h3>
+                <div className="skill-list">
+                  <span className="skill-tag">TypeScript</span>
+                  <span className="skill-tag">React</span>
+                  <span className="skill-tag">HTML/CSS</span>
+                  <span className="skill-tag">APIs REST</span>
+                  <span className="skill-tag">MongoDB</span>
+                  <span className="skill-tag">Git</span>
+                  <span className="skill-tag">Linux</span>
+                </div>
               </div>
             </div>
 
-            <div className="skill-category">
-              <h3 className="skill-category-title"><FaCode /> Software Dev</h3>
-              <div className="skill-list">
-                <span className="skill-tag">TypeScript</span>
-                <span className="skill-tag">React</span>
-                <span className="skill-tag">HTML/CSS</span>
-                <span className="skill-tag">APIs REST</span>
-                <span className="skill-tag">MongoDB</span>
-                <span className="skill-tag">Git</span>
-                <span className="skill-tag">Linux</span>
-              </div>
+            <div style={{ background: 'var(--bg-card)', padding: '1rem', borderRadius: '8px', border: '1px solid var(--glass-border)' }}>
+              <h3 className="skill-category-title" style={{ justifyContent: 'center', marginBottom: '0' }}>Radar de Proficiências</h3>
+              <SkillChart />
             </div>
 
           </div>
@@ -183,7 +225,6 @@ function App() {
         <section id="portfolio" className="portfolio">
           <h2 className="section-title"><span>04.</span> Portfólio</h2>
           <div className="portfolio-grid">
-
             <div className="project-card">
               <div className="project-img-placeholder">
                 &lt; Bookshifter /&gt;
@@ -215,7 +256,6 @@ function App() {
                 </div>
               </div>
             </div>
-
           </div>
         </section>
 
