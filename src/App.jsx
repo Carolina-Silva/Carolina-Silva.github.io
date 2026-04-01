@@ -11,10 +11,27 @@ import {
 import { SiPython, SiPandas, SiScikitlearn, SiOpencv, SiReact, SiTypescript } from 'react-icons/si';
 
 // Novas dependências interativas
-import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
 import Terminal from './components/Terminal';
 import SkillChart from './components/SkillChart';
+
+// Interop-safe hook para o contador de estatísticas
+const useCountUpAnim = (end, duration, inView) => {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    if (inView && end > 0) {
+      let start = 0;
+      const stepTime = Math.max(16, Math.floor((duration * 1000) / end));
+      const timer = setInterval(() => {
+        start += 1;
+        setCount(prev => (prev < end ? start : end));
+        if (start >= end) clearInterval(timer);
+      }, stepTime);
+      return () => clearInterval(timer);
+    }
+  }, [inView, end, duration]);
+  return count;
+};
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
@@ -24,6 +41,11 @@ function App() {
     threshold: 0.3,
     triggerOnce: true
   });
+
+  const pipelinesCount = useCountUpAnim(14, 3, statsInView);
+  const yearsExpCount = useCountUpAnim(2, 2, statsInView);
+  const modelsCount = useCountUpAnim(45, 4, statsInView);
+  const scriptsCount = useCountUpAnim(100, 3, statsInView);
 
   useEffect(() => {
     const handleScroll = () => {
