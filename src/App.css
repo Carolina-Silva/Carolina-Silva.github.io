@@ -66,8 +66,9 @@ section {
 .hero {
   align-items: flex-start;
   position: relative;
-  background-color: rgb(18, 85, 85);
   text-align: center;
+  background: #2A7B9B;
+  background: linear-gradient(90deg,rgb(16, 47, 59) 0%, rgb(5, 63, 44) 50%, rgb(0, 97, 119) 100%);
 }
 
 .hero-subtitle {
@@ -95,7 +96,7 @@ section {
   margin-bottom: 2.5rem;
 }
 
-.box{
+.box {
   margin: 0 auto;
 }
 

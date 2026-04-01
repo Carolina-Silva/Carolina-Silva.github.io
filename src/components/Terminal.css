@@ -8,6 +8,7 @@
   width: 100%;
   max-width: 600px;
   margin-top: 2rem;
+  text-align: left;
 }
 
 .terminal-header {
@@ -25,9 +26,17 @@
   margin-right: 8px;
 }
 
-.term-btn.close { background-color: #ff5f56; }
-.term-btn.min { background-color: #ffbd2e; }
-.term-btn.max { background-color: #27c93f; }
+.term-btn.close {
+  background-color: #ff5f56;
+}
+
+.term-btn.min {
+  background-color: #ffbd2e;
+}
+
+.term-btn.max {
+  background-color: #27c93f;
+}
 
 .term-title {
   color: #8b949e;
@@ -82,6 +91,7 @@
 .terminal-body::-webkit-scrollbar {
   width: 6px;
 }
+
 .terminal-body::-webkit-scrollbar-thumb {
   background: #30363d;
   border-radius: 3px;

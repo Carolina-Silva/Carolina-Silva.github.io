@@ -70,7 +70,7 @@ function App() {
     <div className="app">
       {/* Header */}
       <header className="header">
-        <a href="#home" className="logo">C_Silva<span style={{ color: 'var(--text-main)' }}>.io</span></a>
+        <a href="#home" className="logo">CNS<span style={{ color: 'var(--text-main)' }}>.io</span></a>
 
         <nav className="nav-links">
           {['home', 'about', 'experience', 'skills', 'portfolio', 'contact'].map((item) => (
@@ -89,7 +89,7 @@ function App() {
       <main>
         {/* Hero Section */}
         <section id="home" className="hero" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', alignItems: 'center' }}>
-          <div>
+          <div className='box'>
             <p className="hero-subtitle">~$ whoami</p>
             <h1 className="hero-title">
               Carolina <span>Silva</span>
@@ -98,7 +98,7 @@ function App() {
               Cientista de Dados Júnior e Desenvolvedora de Software construindo soluções
               desde pipelines de ETL e modelos de abstração até interfaces web interativas.
             </p>
-            <div style={{ display: 'flex', gap: '1rem' }}>
+            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
               <a href="#portfolio" className="btn">
                 <FaCode /> Ver Projetos
               </a>
