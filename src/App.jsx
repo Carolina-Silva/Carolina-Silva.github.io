@@ -137,28 +137,28 @@ function App() {
                 <FaDatabase size={24} color="var(--accent-cyan)" style={{ marginBottom: '1rem' }} />
                 <h3 className="stat-title">Pipelines Desenvolvidos</h3>
                 <p style={{ fontSize: '2.5rem', fontFamily: 'var(--font-mono)', color: 'var(--accent-cyan)' }}>
-                  {statsInView ? <CountUp end={14} duration={3} suffix="+" /> : '0'}
+                  {pipelinesCount}+
                 </p>
               </div>
               <div className="stat-item">
                 <FaTerminal size={24} color="var(--accent-green)" style={{ marginBottom: '1rem' }} />
                 <h3 className="stat-title">Anos de Experiência</h3>
                 <p style={{ fontSize: '2.5rem', fontFamily: 'var(--font-mono)', color: 'var(--accent-green)' }}>
-                  {statsInView ? <CountUp end={2} duration={2} suffix="+" /> : '0'}
+                  {yearsExpCount}+
                 </p>
               </div>
               <div className="stat-item">
                 <SiScikitlearn size={24} color="var(--text-muted)" style={{ marginBottom: '1rem' }} />
                 <h3 className="stat-title">Modelos Analisados</h3>
                 <p style={{ fontSize: '2.5rem', fontFamily: 'var(--font-mono)' }}>
-                  {statsInView ? <CountUp end={45} duration={4} suffix="+" /> : '0'}
+                  {modelsCount}+
                 </p>
               </div>
               <div className="stat-item">
                 <SiPython size={24} color="var(--text-muted)" style={{ marginBottom: '1rem' }} />
                 <h3 className="stat-title">Scripts Python</h3>
                 <p style={{ fontSize: '2.5rem', fontFamily: 'var(--font-mono)' }}>
-                  {statsInView ? <CountUp end={100} duration={3} suffix="+" /> : '0'}
+                  {scriptsCount}+
                 </p>
               </div>
             </div>
