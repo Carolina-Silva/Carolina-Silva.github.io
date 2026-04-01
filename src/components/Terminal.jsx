@@ -7,10 +7,12 @@ const Terminal = () => {
         { type: 'output', text: "Digite 'help' para ver os comandos disponíveis." }
     ]);
     const [input, setInput] = useState('');
-    const bottomRef = useRef(null);
+    const containerRef = useRef(null);
 
     useEffect(() => {
-        bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+        if (containerRef.current) {
+            containerRef.current.scrollTop = containerRef.current.scrollHeight;
+        }
     }, [history]);
 
     const handleCommand = (e) => {
@@ -63,7 +65,7 @@ const Terminal = () => {
                 <div className="term-btn max"></div>
                 <span className="term-title">bash - carolina@portfolio</span>
             </div>
-            <div className="terminal-body" onClick={() => document.getElementById('term-input').focus()}>
+            <div className="terminal-body" ref={containerRef} onClick={() => document.getElementById('term-input').focus()}>
                 {history.map((line, idx) => (
                     <div key={idx} className={`term-line ${line.type}`}>
                         {line.text}
@@ -81,7 +83,6 @@ const Terminal = () => {
                         spellCheck="false"
                     />
                 </div>
-                <div ref={bottomRef} />
             </div>
         </div>
     );
