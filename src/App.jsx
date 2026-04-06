@@ -10,12 +10,10 @@ import {
 } from 'react-icons/fa';
 import { SiPython, SiPandas, SiScikitlearn, SiOpencv, SiReact, SiTypescript } from 'react-icons/si';
 
-// Novas dependências interativas
 import { useInView } from 'react-intersection-observer';
 import Terminal from './components/Terminal';
 import SkillChart from './components/SkillChart';
 
-// Interop-safe hook para o contador de estatísticas
 const useCountUpAnim = (end, duration, inView) => {
   const [count, setCount] = useState(0);
   useEffect(() => {
@@ -36,7 +34,6 @@ const useCountUpAnim = (end, duration, inView) => {
 function App() {
   const [activeSection, setActiveSection] = useState('home');
 
-  // Observer para ativar os contadores a partir da seção Sobre
   const { ref: statsRef, inView: statsInView } = useInView({
     threshold: 0.3,
     triggerOnce: true
@@ -95,8 +92,11 @@ function App() {
               Carolina <span>Silva</span>
             </h1>
             <p className="hero-desc">
-              Cientista de Dados Júnior e Desenvolvedora de Software construindo soluções
-              desde pipelines de ETL e modelos de abstração até interfaces web interativas.
+              Cientista de Dados Júnior com formação em Desenvolvimento de Software e MBA em
+              andamento em Ciência de Dados e Analytics. Focada em análise de dados biomédicos e automação de pipelines
+              científicos utilizando Python, SQL e Machine Learning. Combina lógica de programação
+              com estatística aplicada para transformar dados complexos em insights para tomada de
+              decisão.
             </p>
             <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
               <a href="#portfolio" className="btn">
@@ -107,7 +107,7 @@ function App() {
               </a>
             </div>
           </div>
-          <div style={{ padding: '0 1rem' }}>
+          <div>
             <Terminal />
           </div>
         </section>
@@ -118,17 +118,16 @@ function App() {
           <div className="about-content">
             <div className="about-text">
               <p>
-                Analítica, curiosa e focada em resultados. Sou uma Cientista de Dados Júnior
-                com sólida base em Desenvolvimento de Software.
+                Tenho interesse em explorar dados, identificar padrões e transformar informações complexas em algo claro e útil. Gosto do processo investigativo da Ciência de Dados — entender o problema, explorar os dados e construir soluções que apoiem decisões.
               </p>
               <p>
-                Atualmente atuo no Instituto do Coração (InCor HCFMUSP) utilizando Python e algoritmos de
-                Machine Learning para transformar dados biomédicos e imagens médicas em insights valiosos
-                para a pesquisa clínica.
+                Atuo com análise de dados biomédicos, processamento de imagens científicas e desenvolvimento de pipelines para análise automatizada, utilizando principalmente Python, Pandas e técnicas de Machine Learning. Meu trabalho envolve desde a preparação e exploração dos dados até a modelagem e interpretação dos resultados.
               </p>
               <p>
-                Em paralelo, busco excelência acadêmica cursando MBA em Ciência de Dados e Analytics
-                pela USP/ESALQ, além de ser formada em Desenvolvimento de Software Multiplataforma (FATEC).
+                Minha formação em desenvolvimento de software trouxe uma visão estruturada para resolver problemas e construir soluções eficientes, organizadas e reprodutíveis. Hoje, busco unir essa base técnica com análise de dados e aprendizado de máquina para desenvolver soluções que gerem impacto real.
+              </p>
+              <p>
+                Estou sempre aprendendo, desenvolvendo projetos e explorando novas ferramentas para evoluir como Cientista de Dados.
               </p>
             </div>
 
@@ -205,7 +204,7 @@ function App() {
         {/* Skills Section */}
         <section id="skills" className="skills">
           <h2 className="section-title"><span>03.</span> Tech Skills</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '3rem', alignItems: 'center' }}>
+          <div style={{ display: 'flex', flexDirection:'column', gap: '3rem', alignItems: 'center' }}>
 
             <div className="skills-grid">
               <div className="skill-category">
@@ -235,7 +234,7 @@ function App() {
               </div>
             </div>
 
-            <div style={{ background: 'var(--bg-card)', padding: '1rem', borderRadius: '8px', border: '1px solid var(--glass-border)' }}>
+            <div style={{ width:'1000px', background: 'var(--bg-card)', padding: '1rem', borderRadius: '8px', border: '1px solid var(--glass-border)' }}>
               <h3 className="skill-category-title" style={{ justifyContent: 'center', marginBottom: '0' }}>Radar de Proficiências</h3>
               <SkillChart />
             </div>
@@ -278,6 +277,38 @@ function App() {
                 </div>
               </div>
             </div>
+
+             <div className="project-card">
+              <div className="project-img-placeholder">
+                &lt; Bookshifter /&gt;
+              </div>
+              <div className="project-content">
+                <h3 className="project-title">Bookshifter (Sistema de Recomendação)</h3>
+                <p className="project-desc">
+                  Aplicação web para doação e troca de livros integrando um sistema de
+                  recomendação baseado em idioma, gênero e autor usando Python.
+                </p>
+                <div className="project-tech">
+                  <span>React</span> • <span>Python</span> • <span>Firebase</span>
+                </div>
+              </div>
+            </div>
+
+             <div className="project-card">
+              <div className="project-img-placeholder">
+                &lt; Bookshifter /&gt;
+              </div>
+              <div className="project-content">
+                <h3 className="project-title">Bookshifter (Sistema de Recomendação)</h3>
+                <p className="project-desc">
+                  Aplicação web para doação e troca de livros integrando um sistema de
+                  recomendação baseado em idioma, gênero e autor usando Python.
+                </p>
+                <div className="project-tech">
+                  <span>React</span> • <span>Python</span> • <span>Firebase</span>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -286,7 +317,7 @@ function App() {
           <h2 className="section-title" style={{ justifyContent: 'center' }}><span>05.</span> Contato</h2>
           <p className="contact-text">
             No momento estou aberta a novas oportunidades como Cientista de Dados Júnior ou posições
-            relacionadas a Desenvolvimento e Engenharia de Dados. Sinta-se à vontade para enviar uma mensagem!
+            relacionadas a Engenharia de Dados. Sinta-se à vontade para enviar uma mensagem!
           </p>
           <a href="mailto:nascimento.carolina202@gmail.com" className="btn">
             <FaEnvelope /> Diga Olá
