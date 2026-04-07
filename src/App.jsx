@@ -178,9 +178,24 @@ function App() {
                 <span className="exp-date">Fev 2025 - Presente</span>
               </div>
               <ul className="exp-desc">
-                <li>Desenvolvimento de pipelines ETL em Python para integração de dados biomédicos (imagens e tabulares).</li>
-                <li>Aplicação de modelos estatísticos e algoritmos de ML em Python (Scikit-learn, Pandas, NumPy) para extração de padrões clínicos.</li>
-                <li>Automação de rotinas de análise reduzindo drasticamente o tempo manual da equipe de pesquisa.</li>
+                <li>
+                  <span className="exp-summary">Desenvolvimento de pipelines ETL em Python para integração de dados biomédicos (imagens e tabulares).</span>
+                  <div className="exp-details">
+                    Projetei e implementei arquiteturas de pipelines de dados escaláveis, processando e cruzando grandes volumes de informações médicas. Isso unificou bases desestruturadas e garantiu a consistência necessária para a condução ágil dos estudos clínicos e da pesquisa.
+                  </div>
+                </li>
+                <li>
+                  <span className="exp-summary">Aplicação de modelos estatísticos e algoritmos de ML em Python (Scikit-learn, Pandas, NumPy) para extração de padrões clínicos.</span>
+                  <div className="exp-details">
+                    Fui responsável por desenvolver, treinar e validar modelos preditivos voltados à saúde. Liderei a engenharia de features, otimizando o diagnóstico e identificando biomarcadores críticos que trouxeram alto rigor científico e confiabilidade às entregas.
+                  </div>
+                </li>
+                <li>
+                  <span className="exp-summary">Automação de rotinas de análise reduzindo drasticamente o tempo manual da equipe de pesquisa.</span>
+                  <div className="exp-details">
+                    Substituí fluxos altamente dependentes de análise manual por scripts automatizados de ponta a ponta. Isso liberou pesquisadores e médicos para focarem na interpretação dos resultados, impulsionando a produtividade e a escala do laboratório.
+                  </div>
+                </li>
               </ul>
             </div>
 
@@ -193,9 +208,24 @@ function App() {
                 <span className="exp-date">Abr 2023 - Jan 2025</span>
               </div>
               <ul className="exp-desc">
-                <li>Desenvolvimento full-stack de plataformas web para o gerenciamento de dados de ensaios clínicos experimentais.</li>
-                <li>Criação de dashboards interativos facilitando o rastreamento e análise de métricas de pesquisa.</li>
-                <li>Comunicação inter-disciplinar diária com médicos e biomédicos na tradução de necessidades lógicas complexas.</li>
+                <li>
+                  <span className="exp-summary">Desenvolvimento full-stack de plataformas web para o gerenciamento de dados de ensaios clínicos experimentais.</span>
+                  <div className="exp-details">
+                    Desempenhei um papel central na construção da arquitetura e das interfaces da aplicação web, elaborando um sistema robusto, seguro e padronizado. A plataforma se tornou o eixo principal em coleta e armazenamento de dados para os experimentos do instituto.
+                  </div>
+                </li>
+                <li>
+                  <span className="exp-summary">Criação de dashboards interativos facilitando o rastreamento e análise de métricas de pesquisa.</span>
+                  <div className="exp-details">
+                    Concebi painéis visuais amigáveis que traduziam o grande volume de dados experimentais em indicadores de fácil interpretação. Isso ajudou gestores na tomada de decisão rápida e acompanhamento dos protocolos em curso de forma integrada.
+                  </div>
+                </li>
+                <li>
+                  <span className="exp-summary">Comunicação inter-disciplinar diária com médicos e biomédicos na tradução de necessidades lógicas complexas.</span>
+                  <div className="exp-details">
+                    Atuei como a principal ponte entre a tecnologia e a medicina. Assimilei as restrições e objetivos do ambiente hospitalar para extrair requisitos altamente específicos, garantindo que o software trouxesse agilidade e simplificasse a rotina de pesquisa biológica.
+                  </div>
+                </li>
               </ul>
             </div>
           </div>
@@ -204,7 +234,7 @@ function App() {
         {/* Skills Section */}
         <section id="skills" className="skills">
           <h2 className="section-title"><span>03.</span> Tech Skills</h2>
-          <div style={{ display: 'flex', flexDirection:'column', gap: '3rem', alignItems: 'center' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem', alignItems: 'center' }}>
 
             <div className="skills-grid">
               <div className="skill-category">
@@ -234,7 +264,7 @@ function App() {
               </div>
             </div>
 
-            <div style={{ width:'1000px', background: 'var(--bg-card)', padding: '1rem', borderRadius: '8px', border: '1px solid var(--glass-border)' }}>
+            <div style={{ width: '1000px', background: 'var(--bg-card)', padding: '1rem', borderRadius: '8px', border: '1px solid var(--glass-border)' }}>
               <h3 className="skill-category-title" style={{ justifyContent: 'center', marginBottom: '0' }}>Radar de Proficiências</h3>
               <SkillChart />
             </div>
@@ -278,7 +308,7 @@ function App() {
               </div>
             </div>
 
-             <div className="project-card">
+            <div className="project-card">
               <div className="project-img-placeholder">
                 &lt; Bookshifter /&gt;
               </div>
@@ -294,7 +324,7 @@ function App() {
               </div>
             </div>
 
-             <div className="project-card">
+            <div className="project-card">
               <div className="project-img-placeholder">
                 &lt; Bookshifter /&gt;
               </div>

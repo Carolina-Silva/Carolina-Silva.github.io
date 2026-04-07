@@ -68,7 +68,7 @@ section {
   position: relative;
   text-align: center;
   background: #2A7B9B;
-  background: linear-gradient(90deg,rgb(16, 47, 59) 0%, rgb(5, 63, 44) 50%, rgb(0, 97, 119) 100%);
+  background: linear-gradient(90deg, rgb(16, 47, 59) 0%, rgb(5, 63, 44) 50%, rgb(0, 97, 119) 100%);
 }
 
 .hero-subtitle {
@@ -96,7 +96,7 @@ section {
   margin-bottom: 2.5rem;
 }
 
-.aling-box{
+.aling-box {
   background-color: red;
   width: 100%;
   display: flex;
@@ -218,13 +218,50 @@ section {
   position: relative;
   padding-left: 1.5rem;
   margin-bottom: 0.8rem;
+  transition: all 0.3s ease;
 }
 
 .exp-desc li::before {
   content: '▹';
   position: absolute;
   left: 0;
+  top: 0;
   color: var(--accent-green);
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.experience-card:hover .exp-desc li::before {
+  transform: rotate(90deg);
+}
+
+.exp-summary {
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.experience-card:hover .exp-summary {
+  color: var(--text-main);
+}
+
+.exp-details {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.4s ease, margin-top 0.4s ease, margin-bottom 0.4s ease;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  border-left: 2px solid rgba(16, 185, 129, 0.3);
+  /* verde mais sutil */
+  padding-left: 1rem;
+  margin-left: 0.2rem;
+}
+
+.experience-card:hover .exp-details {
+  max-height: 400px;
+  opacity: 1;
+  margin-top: 0.8rem;
+  margin-bottom: 1.2rem;
 }
 
 /* Skills */
