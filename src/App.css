@@ -269,6 +269,7 @@ section {
 .skills-grid {
   display: flex;
   gap: 2rem;
+  background-color: #2A7B9B;
 }
 
 .skill-category {

@@ -33,6 +33,7 @@ const useCountUpAnim = (end, duration, inView) => {
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
+  const [skillMode, setSkillMode] = useState('dados');
 
   const { ref: statsRef, inView: statsInView } = useInView({
     threshold: 0.3,
@@ -236,38 +237,79 @@ function App() {
           <h2 className="section-title"><span>03.</span> Tech Skills</h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem', alignItems: 'center' }}>
 
-            <div className="skills-grid">
-              <div className="skill-category">
-                <h3 className="skill-category-title"><FaDatabase /> Data & ML</h3>
-                <div className="skill-list">
-                  <span className="skill-tag">Python</span>
-                  <span className="skill-tag">SQL</span>
-                  <span className="skill-tag">Pandas</span>
-                  <span className="skill-tag">NumPy</span>
-                  <span className="skill-tag">Scikit-learn</span>
-                  <span className="skill-tag">OpenCV</span>
-                  <span className="skill-tag">ETL</span>
-                </div>
+            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+              <span style={{ fontFamily: 'var(--font-mono)', color: skillMode === 'dados' ? 'var(--accent-cyan)' : 'var(--text-muted)', transition: 'color 0.3s ease' }}>Dados</span>
+              <div
+                onClick={() => setSkillMode(prev => prev === 'dados' ? 'dev' : 'dados')}
+                style={{
+                  width: '60px',
+                  height: '30px',
+                  background: 'var(--bg-card)',
+                  borderRadius: '15px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  padding: '4px',
+                  cursor: 'pointer',
+                  border: '1px solid var(--glass-border)'
+                }}
+              >
+                <div style={{
+                  width: '22px',
+                  height: '22px',
+                  background: skillMode === 'dados' ? 'var(--accent-cyan)' : 'var(--accent-green)',
+                  borderRadius: '50%',
+                  transition: 'all 0.3s ease',
+                  transform: skillMode === 'dados' ? 'translateX(0)' : 'translateX(28px)'
+                }} />
               </div>
-
-              <div className="skill-category">
-                <h3 className="skill-category-title"><FaCode /> Software Dev</h3>
-                <div className="skill-list">
-                  <span className="skill-tag">TypeScript</span>
-                  <span className="skill-tag">React</span>
-                  <span className="skill-tag">HTML/CSS</span>
-                  <span className="skill-tag">APIs REST</span>
-                  <span className="skill-tag">MongoDB</span>
-                  <span className="skill-tag">Git</span>
-                  <span className="skill-tag">Linux</span>
-                </div>
-              </div>
+              <span style={{ fontFamily: 'var(--font-mono)', color: skillMode === 'dev' ? 'var(--accent-green)' : 'var(--text-muted)', transition: 'color 0.3s ease' }}>Dev</span>
             </div>
 
-            <div style={{ width: '1000px', background: 'var(--bg-card)', padding: '1rem', borderRadius: '8px', border: '1px solid var(--glass-border)' }}>
-              <h3 className="skill-category-title" style={{ justifyContent: 'center', marginBottom: '0' }}>Radar de Proficiências</h3>
-              <SkillChart />
-            </div>
+            {skillMode === 'dados' ? (
+              <>
+                <div className="skills-grid" style={{ width: '100%', maxWidth: '1000px', display: 'flex', justifyContent: 'center' }}>
+                  <div className="skill-category" style={{ width: '100%' }}>
+                    <h3 className="skill-category-title"><FaDatabase /> Data & ML</h3>
+                    <div className="skill-list" style={{ justifyContent: 'center' }}>
+                      <span className="skill-tag">Python</span>
+                      <span className="skill-tag">SQL</span>
+                      <span className="skill-tag">Pandas</span>
+                      <span className="skill-tag">NumPy</span>
+                      <span className="skill-tag">Scikit-learn</span>
+                      <span className="skill-tag">OpenCV</span>
+                      <span className="skill-tag">ETL</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div style={{ width: '1000px', background: 'var(--bg-card)', padding: '1rem', borderRadius: '8px', border: '1px solid var(--glass-border)' }}>
+                  <h3 className="skill-category-title" style={{ justifyContent: 'center', marginBottom: '0' }}>Radar de Proficiências</h3>
+                  <SkillChart mode="dados" />
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="skills-grid" style={{ width: '100%', maxWidth: '1000px', display: 'flex', justifyContent: 'center' }}>
+                  <div className="skill-category" style={{ width: '100%' }}>
+                    <h3 className="skill-category-title"><FaCode /> Software Dev</h3>
+                    <div className="skill-list" style={{ justifyContent: 'center' }}>
+                      <span className="skill-tag">TypeScript</span>
+                      <span className="skill-tag">React</span>
+                      <span className="skill-tag">HTML/CSS</span>
+                      <span className="skill-tag">APIs REST</span>
+                      <span className="skill-tag">MongoDB</span>
+                      <span className="skill-tag">Git</span>
+                      <span className="skill-tag">Linux</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div style={{ width: '1000px', background: 'var(--bg-card)', padding: '1rem', borderRadius: '8px', border: '1px solid var(--glass-border)' }}>
+                  <h3 className="skill-category-title" style={{ justifyContent: 'center', marginBottom: '0' }}>Radar de Proficiências</h3>
+                  <SkillChart mode="dev" />
+                </div>
+              </>
+            )}
 
           </div>
         </section>
